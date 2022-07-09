@@ -1,0 +1,37 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${moovin.datasource.url}
+    username: ${moovin.datasource.user}
+    password: ${moovin.datasource.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: MOOVIN-SPRING-ARCHETYPE-${INSTANCE_REGION}
+server:
+  port: ${PORT:8080}
+  address: ${HOST}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:${moovin.eureka.server.node-1.uri}}, ${EUREKA_URI:"${moovin.eureka.server.node-2.uri}}
+    register-with-eureka: true
+    fetch-registry: true
+    healthcheck:
+      enabled: true
+    eureka-connection-idle-timeout-seconds: 10
+    eureka-server-connect-timeout-seconds: 2
+    eureka-server-read-timeout-seconds: 5
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+keycloak:
+  realm: ${moovin.keycloak.realm}
+  resource: ${moovin.keycloak.resource}
+  auth-server-url: ${moovin.keyclaok.auth-server-url}
+  ssl-required: external
+  public-client: true
