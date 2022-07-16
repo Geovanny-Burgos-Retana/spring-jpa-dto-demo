@@ -20,7 +20,7 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URI:${moovin.eureka.server.node-1.uri}}, ${EUREKA_URI:"${moovin.eureka.server.node-2.uri}}
     register-with-eureka: true
-    fetch-registry:z true
+    fetch-registry: true
     healthcheck:
       enabled: true
     eureka-connection-idle-timeout-seconds: 10
