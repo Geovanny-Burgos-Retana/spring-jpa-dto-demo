@@ -23,8 +23,8 @@ public class TestResponse {
   @Override
   public String toString() {
     return "SendMessageResponse{" +
-        "status='" + status + '\'' +
-        ", message='" + message + '\'' +
-        '}';
+            "status='" + status + '\'' +
+            ", message='" + message + '\'' +
+            '}';
   }
 }

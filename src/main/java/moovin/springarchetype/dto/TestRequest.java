@@ -14,7 +14,7 @@ public class TestRequest {
   @Override
   public String toString() {
     return "TestRequest{" +
-        "message='" + message + '\'' +
-        '}';
+            "message='" + message + '\'' +
+            '}';
   }
 }

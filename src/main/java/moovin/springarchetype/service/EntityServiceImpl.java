@@ -1,6 +1,6 @@
 package moovin.springarchetype.service;
 
-import moovin.springarchetype.domain.Entity;
+import moovin.springarchetype.domain.Contact;
 import moovin.springarchetype.repository.EntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +15,12 @@ public class EntityServiceImpl implements EntityService {
   }
 
   @Override
-  public void createEntity(Entity entity) {
-    this.entityRepository.save(entity);
+  public void createEntity(Contact contact) {
+    this.entityRepository.save(contact);
   }
 
   @Override
-  public Entity findEntityByName(String name) {
+  public Contact findEntityByName(String name) {
     return entityRepository.findByName(name);
   }
 }

@@ -32,9 +32,9 @@ public class EntityResponse {
   @Override
   public String toString() {
     return "EntityResponse{" +
-        "status='" + status + '\'' +
-        ", message='" + message + '\'' +
-        ", entityName='" + entityName + '\'' +
-        '}';
+            "status='" + status + '\'' +
+            ", message='" + message + '\'' +
+            ", entityName='" + entityName + '\'' +
+            '}';
   }
 }

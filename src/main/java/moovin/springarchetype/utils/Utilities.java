@@ -35,10 +35,10 @@ public class Utilities {
   public static String decodeBase64(String text) {
     String result = "";
     try {
-      if(text != null) {
+      if (text != null) {
         result = new String(Base64.getDecoder().decode(text.getBytes()));
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -47,10 +47,10 @@ public class Utilities {
   public static String encodeBase64(String text) {
     String result = "";
     try {
-      if(text != null) {
+      if (text != null) {
         result = new String(Base64.getEncoder().encode(text.getBytes()));
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -60,16 +60,16 @@ public class Utilities {
     StringBuilder result = new StringBuilder();
     String numero = "";
     try {
-      if(valor != null) {
+      if (valor != null) {
         numero = valor.toString();
-        if(fill > numero.length()) {
+        if (fill > numero.length()) {
           result.append("0".repeat(fill));
           result = new StringBuilder(result.substring(0, fill - numero.length()) + numero);
         } else {
           result = new StringBuilder().append(numero);
         }
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result.toString();
@@ -78,14 +78,14 @@ public class Utilities {
   public static String formatDecimal(BigDecimal valor, int digits) {
     String result = "";
     try {
-      if(valor != null) {
+      if (valor != null) {
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(digits);
         df.setMinimumFractionDigits(digits);
         df.setGroupingUsed(false);
         result = df.format(valor);
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -94,14 +94,14 @@ public class Utilities {
   public static String formatDecimal(BigDecimal valor) {
     String result = "";
     try {
-      if(valor != null) {
+      if (valor != null) {
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(2);
         df.setGroupingUsed(true);
         result = df.format(valor);
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -113,11 +113,11 @@ public class Utilities {
 
   public static Date getDate(GregorianCalendar cal) {
     Date result = null;
-    if(cal != null) {
+    if (cal != null) {
       try {
         XMLGregorianCalendar xmlCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
         result = xmlCalendar.toGregorianCalendar().getTime();
-      } catch(Exception ex) {
+      } catch (Exception ex) {
         System.out.println(ex.getMessage());
       }
     }
@@ -133,7 +133,7 @@ public class Utilities {
       GregorianCalendar c = new GregorianCalendar();
       c.setTime(date);
       return DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
-    } catch(Exception ignored) {
+    } catch (Exception ignored) {
     }
     return null;
   }
@@ -153,17 +153,17 @@ public class Utilities {
       FastInternetDateTimeUtil itu = new FastInternetDateTimeUtil();
       OffsetDateTime date = itu.parseDateTime(dateString);
       result = Date.from(date.toInstant());
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       result = null;
       // System.out.println("ERROR 1i >>> " + ex.getMessage());
     }
-    if(result == null) {
+    if (result == null) {
       /* se hace un segundo intento para leer la fecha  */
       String dateStringSinT = dateString.replaceFirst("T", " ");
       try {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         result = sdf.parse(dateStringSinT);
-      } catch(Exception ex) {
+      } catch (Exception ex) {
         System.out.println("ERROR 2i >>>" + ex.getMessage());
       }
     }
@@ -173,11 +173,11 @@ public class Utilities {
   public static String getDateRFC3339Str(Date fecha) {
     String result = "";
     try {
-      if(fecha != null) {
+      if (fecha != null) {
         result = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX")
-            .format(new Date());
+                .format(new Date());
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -190,11 +190,11 @@ public class Utilities {
   public static String getDateStr(LocalDateTime dt) {
     String result = "";
     try {
-      if(dt != null) {
+      if (dt != null) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         result = dtf.format(dt);
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -203,11 +203,11 @@ public class Utilities {
   public static String getDateStr(Date d) {
     String result = "";
     try {
-      if(d != null) {
+      if (d != null) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         result = sdf.format(d);
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -220,11 +220,11 @@ public class Utilities {
   public static String getDateTimeStr(LocalDateTime dt) {
     String result = "";
     try {
-      if(dt != null) {
+      if (dt != null) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
         result = dtf.format(dt);
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -241,11 +241,11 @@ public class Utilities {
   public static String getTimeStr(LocalDateTime dt) {
     String result = "";
     try {
-      if(dt != null) {
+      if (dt != null) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm:ss");
         result = dtf.format(dt);
       }
-    } catch(Exception ex) {
+    } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
     return result;
@@ -256,7 +256,7 @@ public class Utilities {
   }
 
   public static String strSearchCleaner(String terms) {
-    if(terms == null) {
+    if (terms == null) {
       return "";
     }
     String result = "";
@@ -269,12 +269,12 @@ public class Utilities {
     terms = terms.replaceAll("[^\\p{IsLatin}\\p{Digit}*\\\"-.+]", " ");
     StringTokenizer st = new StringTokenizer(terms);
     StringBuilder sb = new StringBuilder();
-    while(st.hasMoreElements()) {
+    while (st.hasMoreElements()) {
       term = st.nextElement().toString();
       matcher = pattern.matcher(term);
-      if(!matcher.matches()) {
+      if (!matcher.matches()) {
         matcher = patternOnlyDigits.matcher(term);
-        if(!matcher.matches()) {
+        if (!matcher.matches()) {
           sb.append("+").append(term).append("* ");
         } else {
           sb.append(term).append(" ");

@@ -1,9 +1,9 @@
 package moovin.springarchetype.service;
 
-import moovin.springarchetype.domain.Entity;
+import moovin.springarchetype.domain.Contact;
 
 public interface EntityService {
-  void createEntity(Entity entity);
+  void createEntity(Contact contact);
 
-  Entity findEntityByName(String name);
+  Contact findEntityByName(String name);
 }

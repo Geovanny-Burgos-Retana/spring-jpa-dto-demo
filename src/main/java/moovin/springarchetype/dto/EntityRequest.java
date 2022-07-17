@@ -14,7 +14,7 @@ public class EntityRequest {
   @Override
   public String toString() {
     return "EntityRequest{" +
-        "name='" + name + '\'' +
-        '}';
+            "name='" + name + '\'' +
+            '}';
   }
 }
