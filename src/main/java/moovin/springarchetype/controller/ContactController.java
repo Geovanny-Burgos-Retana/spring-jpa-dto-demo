@@ -13,10 +13,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @RestController
 @Log4j2
@@ -57,5 +57,19 @@ public class ContactController {
       return new ResponseEntity<>(contactForUserResponse, httpStatus);
     }
     return new ResponseEntity<>(contactService.createContactForUser(contact), httpStatus);
+  }
+
+  @GetMapping(value = "/forPoint/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseBody
+  public ResponseEntity<ContactForPointResponse> getContactForPoint(@PathVariable("id") Long id) {
+    HttpStatus httpStatus = HttpStatus.OK;
+    return new ResponseEntity<>(contactService.getContactForPoint(id), httpStatus);
+  }
+
+  @GetMapping(value = "/forUser/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+  @ResponseBody
+  public ResponseEntity<ContactForUserResponse> getContactForUser(@NotNull @NotBlank @PathVariable("id") Long id) {
+    HttpStatus httpStatus = HttpStatus.OK;
+    return new ResponseEntity<>(contactService.getContactForUser(id), httpStatus);
   }
 }

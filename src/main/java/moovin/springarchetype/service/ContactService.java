@@ -9,4 +9,8 @@ public interface ContactService {
   ContactForPointResponse createContactForPoint(Contact contact);
 
   ContactForUserResponse createContactForUser(Contact contact);
+
+  ContactForPointResponse getContactForPoint(Long id);
+
+  ContactForUserResponse getContactForUser(Long id);
 }

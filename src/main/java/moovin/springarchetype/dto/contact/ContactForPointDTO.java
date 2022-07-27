@@ -1,12 +1,12 @@
-package moovin.springarchetype.dto.response.contact;
+package moovin.springarchetype.dto.contact;
 
-import moovin.springarchetype.dto.contact.ContactForPointCreationDTO;
-
+import javax.persistence.Id;
 import java.util.Objects;
 
-public class ContactForPoint extends ContactForPointCreationDTO {
+public class ContactForPointDTO extends ContactForPointCreationDTO {
   private Long id;
 
+  @Id
   public Long getId() {
     return id;
   }
@@ -20,7 +20,7 @@ public class ContactForPoint extends ContactForPointCreationDTO {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
-    ContactForPoint that = (ContactForPoint) o;
+    ContactForPointDTO that = (ContactForPointDTO) o;
     return Objects.equals(id, that.id);
   }
 

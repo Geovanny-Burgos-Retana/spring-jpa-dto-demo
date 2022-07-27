@@ -1,11 +1,12 @@
 package moovin.springarchetype.dto.response.contact;
 
+import moovin.springarchetype.dto.contact.ContactForPointDTO;
 import moovin.springarchetype.dto.response.BaseResponse;
 
 import java.util.Objects;
 
 public class ContactForPointResponse extends BaseResponse {
-  ContactForPoint contact;
+  ContactForPointDTO contact;
 
   @Override
   public boolean equals(Object o) {
@@ -27,11 +28,11 @@ public class ContactForPointResponse extends BaseResponse {
             '}';
   }
 
-  public ContactForPoint getContact() {
+  public ContactForPointDTO getContact() {
     return contact;
   }
 
-  public void setContact(ContactForPoint contact) {
+  public void setContact(ContactForPointDTO contact) {
     this.contact = contact;
   }
 }

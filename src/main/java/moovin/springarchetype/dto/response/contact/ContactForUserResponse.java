@@ -1,17 +1,18 @@
 package moovin.springarchetype.dto.response.contact;
 
+import moovin.springarchetype.dto.contact.ContactForUserDTO;
 import moovin.springarchetype.dto.response.BaseResponse;
 
 import java.util.Objects;
 
 public class ContactForUserResponse extends BaseResponse {
-  ContactForUser contact;
+  ContactForUserDTO contact;
 
-  public ContactForUser getContact() {
+  public ContactForUserDTO getContact() {
     return contact;
   }
 
-  public void setContact(ContactForUser contact) {
+  public void setContact(ContactForUserDTO contact) {
     this.contact = contact;
   }
 
